@@ -14,6 +14,36 @@ Esta API oferece um backend robusto para gerenciamento de conteúdo em aplicaç�
 
  * 🧩 Estrutura modular e extensível
 
+## 🚀 Endpoints
+
+### Conteúdos (Posts/Páginas)
+
+| Método   | Endpoint           | Descrição                                                 |
+|----------|--------------------|-----------------------------------------------------------|
+| `GET`    | `/api/posts`       | Listar todos os conteúdos                                 |
+| `GET`    | `/api/posts/:id`   | Obter detalhes de um conteúdo                             |
+| `POST`   | `/api/posts`       | Criar novo conteúdo                                       |
+| `PUT`    | `/api/posts/:id`   | Atualizar um conteúdo existente                           |
+| `DELETE` | `/api/posts/:id`   | Remover um conteúdo                                       |
+
+### Categorias
+
+| Método   | Endpoint               | Descrição                              |
+|----------|------------------------|----------------------------------------|
+| `GET`    | `/api/categories`      | Listar todas as categorias             |
+| `POST`   | `/api/categories`      | Criar uma nova categoria               |
+| `PUT`    | `/api/categories/:id`  | Atualizar uma categoria existente      |
+| `DELETE` | `/api/categories/:id`  | Remover uma categoria                  |
+
+### Autenticação
+
+| Método   | Endpoint               | Descrição                              |
+|----------|------------------------|----------------------------------------|
+| `POST`   | `/api/auth/login`      | Login e geração de token JWT           |
+| `POST`   | `/api/auth/register`   | Registro de novo usuário               |
+| `GET`    | `/api/auth/me`         | Obter dados do usuário autenticado     |
+
+
 ## 🛠️ Tecnologias Utilizadas
  * Next.js (API Routes)
 
@@ -64,3 +94,40 @@ Esta API oferece um backend robusto para gerenciamento de conteúdo em aplicaç�
      ```Bash
      npm run dev
      ```
+## 📁 Estrutura do Projeto (sugestiva)
+```Bash
+/
+├── pages/
+│   └── api/
+│       ├── posts/
+│       ├── categories/
+│       └── auth/
+├── prisma/
+│   ├── schema.prisma
+├── lib/
+│   ├── auth.ts
+│   ├── db.ts
+│   └── validators.ts
+├── middleware/
+├── .env
+├── Dockerfile
+└── README.md
+```
+
+# 🔐 Segurança
+  * JWT para autenticação de rotas protegidas
+
+  * Middleware para verificação de token e permissões
+
+  * Validações com Zod para todos os inputs
+
+# 📦 Possíveis Extensões
+  * Upload de imagens (via S3, Cloudinary, etc)
+
+  * Painel administrativo (Next.js Admin UI)
+
+  * Webhooks para publicação em produção
+
+  * Suporte multilíngue
+
+
